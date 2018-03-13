@@ -1,0 +1,84 @@
+<html>
+<head>
+<style>
+select
+{
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+  height: 40px;
+  font-width: 220px;
+  height: 40px;
+      padding-left: 9px;
+      padding-right: 20px;
+    -webkit-appearance: none;
+    line-height: 30px;
+    font-size: 14px;
+    color: #555;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+  box-sizing: border-box;
+      align-items: center;
+      white-space: pre;
+    -webkit-rtl-ordering: logical;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+function callprice(){
+var oCoin=document.getElementById("mycoin");
+var oCurr=document.getElementById("mycurr");
+var objreq ={"coin":oCoin.options[oCoin.options.selectedIndex].text,"currency":oCurr.options[oCurr.options.selectedIndex].text};
+$.getJSON("/get_prices",objreq,function(data){
+var cursymb = data.currencySymbol;
+document.getElementById("spot").textContent="Spot Price: "+cursymb+" "+data.price.spotprice;
+document.getElementById("sell").textContent="Sell Price: "+cursymb+" "+data.price.sellprice;
+document.getElementById("buy").textContent="Buy Price: "+cursymb+" "+data.price.buyprice;
+console.log(data);
+});
+}
+</script>
+</head>
+
+<body>
+<h1>GET BTC/ETH Prices</h1>
+<button onclick=callprice()>Get Prices</button>
+
+<table>
+<tr>
+<td>ETH/BTC :<select id="mycoin">
+<option>BTC</option>
+<option>ETH</option></td>
+<td>
+<td>Currency :<select id="mycurr">
+<option>USD</option>
+<option>INR</option>
+<option>EUR</option>
+</td>
+<td> </td>
+<td>
+</td>
+</tr>
+<tr>
+<td id="spot">
+Spot Price:
+</td>
+</tr>
+<tr>
+<td id="sell">
+Sell Price:
+</td>
+</tr>
+<tr>
+<td id="buy">
+Buy Price:
+</td>
+</tr>
+</table>
+</body>
+
+
+</html>

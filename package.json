@@ -1,0 +1,18 @@
+{
+  "name": "GetPrice",
+  "version": "1.0.0",
+  "description": "Get the Crypot Currency prices",
+  "main": "Read.js",
+  "scripts": {    
+    "start":"node Read.js"
+  },
+  "author": "Gururaj Basavaraj",
+  "license": "ISC",
+  "dependencies":{
+    "express":"latest",
+    "body-parser":"latest",
+    "coinbase":"latest",
+    "fs-extra":"latest",
+    "pg":"latest"
+  }
+}
