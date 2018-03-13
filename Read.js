@@ -12,7 +12,7 @@ var curobj=JSON.parse(readjson);
 app.get("/ETHPrice1.htm",function(r,s){
 s.sendFile(__dirname+"/ETHPrice1.htm");
 });
-/*
+//
 const {Pool,Client} = require('pg');
 const connectionString = 'postgres://verznuaghqllpg:2a01d57c48481932d195c916b7d91e4291c0e33b7a00670d8ccc10ff7d68ef0d@ec2-23-21-166-148.compute-1.amazonaws.com:5432/d42gnlk78nst1d';
 
@@ -26,7 +26,7 @@ client.connect();
 
 
 
-*/
+//
 var temp=0;
 var allprice={price:{spotprice:0.0,
 				buyprice:0.0,
@@ -55,7 +55,7 @@ app.get("/get_prices",urlencod,function(r,s){
 				allprice.price.sellprice=Number(temp.toFixed(2));
 				console.log(allprice);
 				s.end(JSON.stringify(allprice));
-				/*
+				//
 
 				const query = {
 				  text: 'INSERT INTO salesforce.cryptolog__c(name, price__c) VALUES($1, $2)',
@@ -71,7 +71,7 @@ app.get("/get_prices",urlencod,function(r,s){
 				  }
 				})
 
-				*/
+				//
 			});
 		});
 	});
