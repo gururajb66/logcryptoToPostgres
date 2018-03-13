@@ -58,8 +58,8 @@ app.get("/get_prices",urlencod,function(r,s){
 				//
 
 				const query = {
-				  text: 'INSERT INTO salesforce.cryptolog__c(name, price__c) VALUES($1, $2)',
-				  values: ['BTT', 101],
+				  text: 'INSERT INTO salesforce.cryptolog__c(name, price__c,ExternalId__c) VALUES($1, $2,$3)',
+				  values: ['BTT', 101,'ABC123'],
 				};
 
 				// callback
