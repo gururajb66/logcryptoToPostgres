@@ -4,6 +4,7 @@ var fs=require('fs');
 var coinClient = require("coinbase").Client;
 var coinclient = new coinClient({'apiKey':'ABC','apiSecret':'CDERF'})
 var express = require('express');
+var uniqid = require('uniqid');
 app = express();
 var curSymbol="";
 var readjson = fs.readFileSync('conv.txt','utf8');
@@ -59,7 +60,7 @@ app.get("/get_prices",urlencod,function(r,s){
 
 				const query = {
 				  text: 'INSERT INTO salesforce.cryptolog__c(name, price__c,ExternalId__c) VALUES($1, $2,$3)',
-				  values: ['BTT', 101,'ABC123'],
+				  values: [coin, allprice.price.spotprice,uniqid()],
 				};
 
 				// callback
