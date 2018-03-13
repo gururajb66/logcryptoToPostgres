@@ -13,6 +13,7 @@
     "body-parser":"latest",
     "coinbase":"latest",
     "fs-extra":"latest",
-    "pg":"latest"
+    "pg":"latest",
+    "uniqid":"latest"
   }
 }
